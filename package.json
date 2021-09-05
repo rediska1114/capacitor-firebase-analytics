@@ -1,5 +1,5 @@
 {
-  "name": "capacitor-firebase-analytics",
+  "name": "capacitor-plugin-firebase-analytics",
   "version": "0.1.0",
   "description": "Firebase Analytics plugin for capacitor",
   "main": "plugin.js",
