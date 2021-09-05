@@ -1,8 +1,9 @@
 import Capacitor
 import Foundation
 
-import FirebaseAnalytics
 import FirebaseCore
+import FirebaseAnalytics
+
 
 @objc(CapacitorFirebaseAnalytics)
 public class CapacitorFirebaseAnalytics: CAPPlugin {
@@ -26,7 +27,7 @@ public class CapacitorFirebaseAnalytics: CAPPlugin {
     }
   }
 
-    @objc func setEnabled(_ call: CAPPluginCall) {
+  @objc func setEnabled(_ call: CAPPluginCall) {
     guard let enabled = call.getBool("enabled") else {
       return call.reject("missing enabled option")
     }
@@ -45,8 +46,8 @@ public class CapacitorFirebaseAnalytics: CAPPlugin {
 
     DispatchQueue.main.async {
       Analytics.logEvent(AnalyticsEventScreenView,
-                   parameters: [AnalyticsParameterScreenName: screenName,
-                               AnalyticsParameterScreenClass: screenClass as Any])
+                         parameters: [AnalyticsParameterScreenName: screenName,
+                                      AnalyticsParameterScreenClass: screenClass as Any])
       call.resolve()
     }
   }
@@ -79,7 +80,7 @@ public class CapacitorFirebaseAnalytics: CAPPlugin {
   @objc func appInstanceId(_ call: CAPPluginCall) {
     DispatchQueue.main.async {
       let appInstanceId = Analytics.appInstanceID()
-        call.resolve(["appInstanceId": appInstanceId as Any])
+      call.resolve(["appInstanceId": appInstanceId as Any])
     }
   }
 
