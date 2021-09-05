@@ -26,7 +26,7 @@ export default {
       targets: [
         { src: 'ios/**/*', dest: 'dist/ios' },
         { src: 'android/**/*', dest: 'dist/android' },
-        { src: 'CapacitorFirebaseAnalytics.podspec', dest: 'dist' },
+        { src: 'CapacitorPluginFirebaseAnalytics.podspec', dest: 'dist' },
         { src: 'README.md', dest: 'dist' },
       ],
     }),
