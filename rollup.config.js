@@ -24,8 +24,8 @@ export default {
     }),
     copy({
       targets: [
-        { src: 'ios/**/*', dest: 'dist/ios' },
-        { src: 'android/**/*', dest: 'dist/android' },
+        { src: 'ios/**/*', dest: 'dist/ios/' },
+        { src: 'android/**/*', dest: 'dist/android/' },
         { src: 'CapacitorPluginFirebaseAnalytics.podspec', dest: 'dist' },
         { src: 'README.md', dest: 'dist' },
       ],
