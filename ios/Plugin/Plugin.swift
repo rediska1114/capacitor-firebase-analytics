@@ -1,9 +1,8 @@
 import Capacitor
 import Foundation
 
-import FirebaseCore
 import FirebaseAnalytics
-
+import FirebaseCore
 
 @objc(CapacitorFirebaseAnalytics)
 public class CapacitorFirebaseAnalytics: CAPPlugin {
@@ -17,9 +16,7 @@ public class CapacitorFirebaseAnalytics: CAPPlugin {
     guard let name = call.getString("name") else {
       return call.reject("missing name option")
     }
-    guard let parameters = call.getObject("parameters") else {
-      return call.reject("missing parameters option")
-    }
+    let parameters = call.getObject("parameters") ?? nil
 
     DispatchQueue.main.async {
       Analytics.logEvent(name, parameters: parameters)
