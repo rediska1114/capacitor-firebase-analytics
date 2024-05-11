@@ -1,11 +1,12 @@
 import Capacitor
-import Foundation
-
 import FirebaseAnalytics
 import FirebaseCore
+import Foundation
 
-@objc(CapacitorFirebaseAnalytics)
-public class CapacitorFirebaseAnalytics: CAPPlugin {
+/// Please read the Capacitor iOS Plugin Development Guide
+/// here: https://capacitorjs.com/docs/plugins/ios
+@objc(FirebaseAnalyticsPlugin)
+public class FirebaseAnalyticsPlugin: CAPPlugin {
   override public func load() {
     if FirebaseApp.app() == nil {
       FirebaseApp.configure()
@@ -42,9 +43,12 @@ public class CapacitorFirebaseAnalytics: CAPPlugin {
     let screenClass = call.getString("screenClass")
 
     DispatchQueue.main.async {
-      Analytics.logEvent(AnalyticsEventScreenView,
-                         parameters: [AnalyticsParameterScreenName: screenName,
-                                      AnalyticsParameterScreenClass: screenClass as Any])
+      Analytics.logEvent(
+        AnalyticsEventScreenView,
+        parameters: [
+          AnalyticsParameterScreenName: screenName,
+          AnalyticsParameterScreenClass: screenClass as Any,
+        ])
       call.resolve()
     }
   }

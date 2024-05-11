@@ -1,47 +1,43 @@
-declare global {
-  interface PluginRegistry {
-    CapacitorFirebaseAnalytics: CapacitorFirebaseAnalyticsPlugin;
-  }
-}
-
-export interface ILogEventOptions {
+export interface LogEventOptions {
   name: string;
   parameters?: object;
 }
 
-export interface ISetEnabledOptions {
+export interface SetEnabledOptions {
   enabled: boolean;
 }
 
-export interface ISetScreenNameOptions {
+export interface SetScreenNameOptions {
   screenName: string;
   screenClass?: string;
 }
 
-export interface ISetUserPropertyOptions {
+export interface SetUserPropertyOptions {
   name: string;
   value: string;
 }
 
-export interface ISetUserIdOptions {
+export interface SetUserIdOptions {
   userId: string;
 }
 
-export interface ISetDefaultEventParametersOptions {
-  parameters: object
+export interface SetDefaultEventParametersOptions {
+  parameters: object;
 }
 
 export interface AppInstanceIdResult {
-  appInstanceId: string
+  appInstanceId: string;
 }
 
-export interface CapacitorFirebaseAnalyticsPlugin {
-  logEvent(options: ILogEventOptions): Promise<void>;
-  setEnabled(options: ISetEnabledOptions): Promise<void>;
-  setScreen(options: ISetScreenNameOptions): Promise<void>;
-  setUserProperty(options: ISetUserPropertyOptions): Promise<void>;
-  setUserId(options: ISetUserIdOptions): Promise<void>;
+export interface FirebaseAnalyticsPlugin {
+  logEvent(options: LogEventOptions): Promise<void>;
+  setEnabled(options: SetEnabledOptions): Promise<void>;
+  setScreen(options: SetScreenNameOptions): Promise<void>;
+  setUserProperty(options: SetUserPropertyOptions): Promise<void>;
+  setUserId(options: SetUserIdOptions): Promise<void>;
   appInstanceId(): Promise<AppInstanceIdResult>;
   resetAnalyticsData(): Promise<void>;
-  setDefaultEventParameters(options: ISetDefaultEventParametersOptions): Promise<void>;
+  setDefaultEventParameters(
+    options: SetDefaultEventParametersOptions,
+  ): Promise<void>;
 }
